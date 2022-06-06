@@ -28,6 +28,8 @@
 4) Automate creation of Docker instance
 
 
+## Implementations
+
 ### Database
 
 #### Installation
@@ -56,6 +58,19 @@ sqlite-utils names.db "select * from names" --table
 ```
 
 
+
+
+
+### API
+
+#### Endpoints
+
+/users
+   GET      Get a list of all users in JSON format
+   POST     Add a user from request data sent as JSON
+
+/users/:first
+   GET      Get a user by first name, returning data in JSON format
 
 
 
