@@ -34,6 +34,7 @@ h3. Installation
 brew install sqllite sqlite-utils
 
 h3. Create Example DB
+{code}
 sqlite3 names.db
 sqlite> CREATE TABLE [names] (
    ...> id INTEGER NOT NULL PRIMARY KEY,
@@ -52,7 +53,7 @@ sqlite-utils names.db "select * from names" --table
 ----  ------------  -----------
    1  Tom           Sasser
    2  Foo           Bar
-
+{code}
 
 
 
