@@ -1,39 +1,39 @@
 # tomapi
 
-Basic plan:
+## Basic plan:
 
-Database
+### Database
 1) Create database and prepare for simple use   DONE (sqlite3)
 2) Put into container
 3) Run in Docker
 4) Automate creation of Docker instance
 
-Webform
+### Webform
 1) Create simple webform to submit data using API
 2) Create simple webform to query data using API
 3) Have it run in Docker
 4) Automate creation of Docker instance
 
-API
+### API
 1) Create simple API
 2) POST for webform submit data to database
 3) GET for webform query data from database
 4) Run in Docker
 5) Automate creation of Docker instance
 
-Kafka
+### Kafka
 1) Create kafka instance
 2) Somehow get the webform to interact with it
 3) Run in Docker
 4) Automate creation of Docker instance
 
 
-h2. Database
+### Database
 
-h3. Installation
+#### Installation
 brew install sqllite sqlite-utils
 
-h3. Create Example DB
+### Create Example DB
 ```
 sqlite3 names.db
 sqlite> CREATE TABLE [names] (
