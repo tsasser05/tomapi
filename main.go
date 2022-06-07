@@ -13,7 +13,7 @@ func main() {
 
 	router.GET("/names", controllers.GetNames)
 	router.POST("/names", controllers.CreateName)
-	router.GET("/names/:first_name", FindNameByFirstName)
+	router.GET("/names/:first_name", controllers.FindNameByFirstName)
 
 	router.Run("localhost:8080")
 }
