@@ -3,7 +3,6 @@ package controllers
 import (
 	"net/http"
 
-	//"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin"
 	"github.com/tsasser05/tomapi/models"
 )
@@ -18,7 +17,7 @@ func GetNames(c *gin.Context) {
 // Create new entry in DB with POST
 
 func CreateName(c *gin.Context) {
-	var input CreateNameInput
+	var input models.CreateNameInput
 
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
@@ -32,19 +31,6 @@ func CreateName(c *gin.Context) {
 }
 
 /**************************************************
-// POST users
-
-func postUsers(c *gin.Context) {
-	var newUser user
-
-	if err := c.BindJSON(&newUser); err != nil {
-		return
-	}
-
-	users = append(users, newUser)
-	c.IndentedJSON(http.StatusCreated, newUser)
-}
-
 // Search by first name
 func getUserByFirstName(c *gin.Context) {
 	fn := c.Param("first_name")
