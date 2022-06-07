@@ -25,7 +25,7 @@ func CreateName(c *gin.Context) {
 		return
 	}
 
-	name := models.CreateNameInput{First_name: input.First_name, Last_name: input.Last_name}
+	name := models.Name{First_name: input.First_name, Last_name: input.Last_name}
 	log.Printf("controllers::CreateName():  name is %v", name)
 	models.DB.Create(&name)
 	c.JSON(http.StatusOK, gin.H{"data": name})
