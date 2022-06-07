@@ -1,4 +1,4 @@
-module tomapi
+module github.com/tsasser05/tomapi
 
 go 1.17
 
