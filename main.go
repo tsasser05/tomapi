@@ -12,7 +12,7 @@ func main() {
 	models.ConnectDB()
 
 	router.GET("/names", controllers.GetNames)
-	//router.POST("/names", postUsers)
+	router.POST("/names", controllers.CreateName)
 	//router.GET("/names/:first_name", getUserByFirstName)
 
 	router.Run("localhost:8080")

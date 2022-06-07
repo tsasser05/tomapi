@@ -8,10 +8,27 @@ import (
 	"github.com/tsasser05/tomapi/models"
 )
 
+// Get all names in DB
 func GetNames(c *gin.Context) {
 	var names []models.Name
 	models.DB.Find(&names)
 	c.IndentedJSON(http.StatusOK, names)
+}
+
+// Create new entry in DB with POST
+
+func CreateName(c *gin.Context) {
+	var input CreateNameInput
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
+		return
+	}
+
+	name := models.Name{First_name: input.First_name, Last_name: input.Last_name}
+	models.DB.Create(&name)
+	c.JSON(http.StatusOK, gin.H{"data": name})
+
 }
 
 /**************************************************
