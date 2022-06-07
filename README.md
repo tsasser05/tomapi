@@ -69,7 +69,7 @@ sqlite-utils names.db "select * from names" --table
    GET      Get a list of all users in JSON format
    POST     Add a user from request data sent as JSON
 
-/users/:first
+/users/:first_name
    GET      Get a user by first name, returning data in JSON format
 
 
