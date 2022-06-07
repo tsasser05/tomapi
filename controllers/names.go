@@ -32,18 +32,15 @@ func CreateName(c *gin.Context) {
 
 }
 
-/**************************************************
 // Search by first name
-func getUserByFirstName(c *gin.Context) {
-	fn := c.Param("first_name")
+func FindNameByFirstName(c *gin.Context) {
+	var name models.Name
 
-	for _, a := range users {
-		if a.First_name == fn {
-			c.IndentedJSON(http.StatusOK, a)
-			return
-		}
+	if err := models.DB.Where("first_name = ?", c.Param("first_name")).First(&name).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"controllers::names.go::FindNameByFirstName():  Error:": "Record not found"})
+		return
 	}
-	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "user not found"})
+
+	c.IndentedJSON(http.StatusOK, gin.H{"data": name})
 
 }
-**************************************************/
