@@ -2,10 +2,10 @@ package controllers
 
 import (
 	"net/http"
-	"tomapi/models"
+
+	"github.com/tsasser05/tomapi/models"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tsasser05/tomapi/models"
 )
 
 func GetNames(c *gin.Context) {
