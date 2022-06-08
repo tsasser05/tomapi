@@ -44,3 +44,38 @@ func FindNameByFirstName(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, gin.H{"data": name})
 
 }
+
+func UpdateNameByID(c *gin.Context) {
+	// Get model
+	var name models.Name
+
+	if err := models.DB.Where("id = ?", c.Param("id")).First(&name).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Validate input
+	var input models.UpdateNameInput
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	models.DB.Model(&name).Updates(input)
+	c.JSON(http.StatusOK, gin.H{"data": name})
+
+}
+
+func DeleteNameByID(c *gin.Context) {
+	var name models.Name
+
+	if err := models.DB.Where("id = ?", c.Param("id")).First(&name).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found"})
+		return
+	}
+
+	models.DB.Delete(&name)
+
+	c.JSON(http.StatusOK, gin.H{"data": true})
+
+}

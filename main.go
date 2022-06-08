@@ -14,6 +14,8 @@ func main() {
 	router.GET("/names", controllers.GetNames)
 	router.POST("/names", controllers.CreateName)
 	router.GET("/names/:first_name", controllers.FindNameByFirstName)
+	router.PATCH("/names/:id", controllers.UpdateNameByID)
+	router.DELETE("/names/:id", controllers.DeleteNameByID)
 
 	router.Run("localhost:8080")
 }
