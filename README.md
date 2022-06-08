@@ -37,7 +37,7 @@ sqlite-utils names.db "select * from names" --table
 
 ### Endpoints
 
-####/names
+#### /names
 
 | HTTP Op | Description |
 | --- | --- |
