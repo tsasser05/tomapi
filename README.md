@@ -34,7 +34,7 @@ h3. Verify
 sqlite-utils names.db "select * from names" --table
   id  first_name    last_name
 ----  ------------  -----------
-   1  Tom           Sasser
+   1  Peter         Parker
    2  Foo           Bar
 ```
 ## API
