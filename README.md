@@ -39,17 +39,9 @@ sqlite-utils names.db "select * from names" --table
 
 /names
    GET      Get a list of all names, returned in JSON format
-            curl --location --request GET 'http://localhost:8080/names'
-
    POST     Add a name from request data sent as JSON
             ```
-            curl --location --request POST 'http://localhost:8080/names' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "first_name": "Baz",
-    "last_name": "Boo"
 
-}'
             ```
 /names/:first_name
    GET      Get a name by first name, returning data in JSON format
@@ -58,5 +50,40 @@ sqlite-utils names.db "select * from names" --table
    PATCH    Edit a name by database ID, first_name and/or last_name, submitted in JSON format.
    DELETE   Delete a name by database ID
 
+## Examples
 
+### Get all names:
+```
+curl --location --request GET 'http://localhost:8080/names'
+```
 
+### Add a new name:
+```
+curl --location --request POST 'http://localhost:8080/names' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "first_name": "Baz",
+    "last_name": "Boo"
+
+}'
+```
+
+### Get name by searching for first name:
+```
+curl --location --request GET 'http://localhost:8080/names/Foo'
+```
+
+### Update a name by record ID.  Do a GET first to find the ID.
+```
+curl --location --request PATCH 'http://localhost:8080/names/2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "first_name":  "Baz",
+    "last_name": "Boo"
+}'
+```
+
+### Delete a name by record ID.  Do a GET first to find the ID.
+```
+curl --location --request DELETE 'http://localhost:8080/names/2'
+```
