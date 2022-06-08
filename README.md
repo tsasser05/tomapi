@@ -94,7 +94,8 @@ curl --location --request PATCH 'http://localhost:8080/names/2' \
 }'
 ```
 
-### Delete a name by record ID.  Do a GET first to find the ID.
+### Delete a name by record ID.
+Do a GET first to find the ID.
 ```
 curl --location --request DELETE 'http://localhost:8080/names/2'
 ```
