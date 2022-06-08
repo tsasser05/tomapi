@@ -1,35 +1,12 @@
 # tomapi
 
-## Basic plan:
-
-### Database
-1) Create database and prepare for simple use   DONE (sqlite3)
-2) Put into container
-3) Run in Docker
-4) Automate creation of Docker instance
-
-### Webform
-1) Create simple webform to submit data using API
-2) Create simple webform to query data using API
-3) Have it run in Docker
-4) Automate creation of Docker instance
-
-### API
-1) Create simple API
-2) POST for webform submit data to database
-3) GET for webform query data from database
-4) Run in Docker
-5) Automate creation of Docker instance
-
-### Kafka
-1) Create kafka instance
-2) Somehow get the webform to interact with it
-3) Run in Docker
-4) Automate creation of Docker instance
+## A simple web API example written in Go.
 
 
 ## Implementations
 
+### Go
+Simply install go 1.17.
 ### Database
 
 #### Installation
@@ -45,7 +22,7 @@ sqlite> CREATE TABLE [names] (
    ...> );
 
 sqlite> insert into names values
-   ...> (NULL, "Tom","Sasser");
+   ...> (NULL, "Peter","Parker");
 sqlite> insert into names values
    ...> (NULL, "Foo","Bar");
 
@@ -56,21 +33,30 @@ sqlite-utils names.db "select * from names" --table
    1  Tom           Sasser
    2  Foo           Bar
 ```
+## API
 
+### Endpoints
 
+/names
+   GET      Get a list of all names, returned in JSON format
+            curl --location --request GET 'http://localhost:8080/names'
 
+   POST     Add a name from request data sent as JSON
+            ```
+            curl --location --request POST 'http://localhost:8080/names' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "first_name": "Baz",
+    "last_name": "Boo"
 
+}'
+            ```
+/names/:first_name
+   GET      Get a name by first name, returning data in JSON format
 
-### API
-
-#### Endpoints
-
-/users
-   GET      Get a list of all users in JSON format
-   POST     Add a user from request data sent as JSON
-
-/users/:first_name
-   GET      Get a user by first name, returning data in JSON format
+/names/:id
+   PATCH    Edit a name by database ID, first_name and/or last_name, submitted in JSON format.
+   DELETE   Delete a name by database ID
 
 
 
