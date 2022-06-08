@@ -40,9 +40,7 @@ sqlite-utils names.db "select * from names" --table
 /names
    GET      Get a list of all names, returned in JSON format
    POST     Add a name from request data sent as JSON
-            ```
 
-            ```
 /names/:first_name
    GET      Get a name by first name, returning data in JSON format
 
