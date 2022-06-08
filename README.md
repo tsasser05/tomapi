@@ -16,7 +16,7 @@ I recommend you use Postman to test the API, though curl commands are included b
 #### Installation
 brew install sqllite sqlite-utils
 
-### Create Example DB
+#### Create Example DB
 ```
 sqlite3 names.db
 sqlite> CREATE TABLE [names] (
