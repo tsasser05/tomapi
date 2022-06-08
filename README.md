@@ -85,6 +85,7 @@ curl --location --request GET 'http://localhost:8080/names/Foo'
 ```
 
 ### Update a name by record ID.  Do a GET first to find the ID.
+Do a GET first to find the ID.
 ```
 curl --location --request PATCH 'http://localhost:8080/names/2' \
 --header 'Content-Type: application/json' \
