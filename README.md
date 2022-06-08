@@ -38,15 +38,15 @@ sqlite-utils names.db "select * from names" --table
 ### Endpoints
 
 /names
-   GET      Get a list of all names, returned in JSON format
-   POST     Add a name from request data sent as JSON
+| GET | Get a list of all names, returned in JSON format |
+| POST | Add a name from request data sent as JSON |
 
 /names/:first_name
-   GET      Get a name by first name, returning data in JSON format
+| GET | Get a name by first name, returning data in JSON format |
 
 /names/:id
-   PATCH    Edit a name by database ID, first_name and/or last_name, submitted in JSON format.
-   DELETE   Delete a name by database ID
+| PATCH | Edit a name by database ID, first_name and/or last_name, submitted in JSON format |
+| DELETE | Delete a name by database ID |
 
 ## Examples
 
