@@ -14,7 +14,6 @@ func ConnectDB() {
 		panic("Failed to connect to names database")
 	}
 
-	// Migrate db schema.  Do for each model.
 	database.AutoMigrate(&Name{})
 	DB = database
 }
