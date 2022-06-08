@@ -37,20 +37,20 @@ sqlite-utils names.db "select * from names" --table
 
 ### Endpoints
 
-#### /names
+#### http://localhost:8080/names
 
 | HTTP Op | Description |
 | --- | --- |
 | GET | Get a list of all names, returned in JSON format |
 | POST | Add a name from request data sent as JSON |
 
-#### /names/:first_name
+#### http://localhost:8080/names/:first_name
 
 | HTTP Op | Description |
 | --- | --- |
 | GET | Get a name by first name, returning data in JSON format |
 
-#### /names/:id
+#### http://localhost:8080/names/:id
 
 | HTTP Op | Description |
 | --- | --- |
