@@ -7,6 +7,10 @@
 
 ### Go
 Simply install go 1.17.
+
+### Tools
+I recommend you use Postman to test the API, though curl commands are included below.
+
 ### Database
 
 #### Installation
