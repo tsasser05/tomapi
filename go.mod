@@ -5,7 +5,6 @@ go 1.17
 require (
 	github.com/gin-gonic/gin v1.8.1
 	github.com/jinzhu/gorm v1.9.16
-	github.com/tsasser05/tomapi v0.0.0-20220607161052-63d8117523c3
 )
 
 require (

@@ -11,6 +11,12 @@ func main() {
 
 	models.ConnectDB()
 
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "hello world",
+		})
+	})
+
 	router.GET("/names", controllers.GetNames)
 	router.POST("/names", controllers.CreateName)
 	router.GET("/names/:first_name", controllers.FindNameByFirstName)
