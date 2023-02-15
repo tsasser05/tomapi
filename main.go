@@ -6,16 +6,18 @@ import (
 	"github.com/tsasser05/tomapi/models"
 )
 
+func IndexHandler(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"message": "hello world",
+	})
+}
+
 func main() {
 	router := gin.Default()
 
 	models.ConnectDB()
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "hello world",
-		})
-	})
+	router.GET("/", IndexHandler)
 
 	router.GET("/names", controllers.GetNames)
 	router.POST("/names", controllers.CreateName)
