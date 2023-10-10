@@ -8,6 +8,13 @@
 ### Go
 Simply install go 1.17.
 
+### Docker Build
+
+cd to 'tomapi' directory
+docker build -t "tomapi:Dockerfile" .
+docker images
+docker run -d -p 8080:80 --name godocker <image id>
+
 ### Tools
 I recommend you use Postman to test the API, though curl commands are included below.
 
@@ -37,6 +44,11 @@ sqlite-utils names.db "select * from names" --table
    1  Peter         Parker
    2  Foo           Bar
 ```
+
+### Go run
+If you want to run the app on the CLI to test it, then run:
+go run main.go
+
 ## API
 
 ### Endpoints
