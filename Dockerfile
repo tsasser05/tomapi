@@ -18,7 +18,7 @@ RUN go get -t -v ./...
 COPY *.go .
 RUN go build -o /tomapi
 
-EXPOSE 8080
+EXPOSE 8084
 
 CMD [ "/tomapi" ]
 

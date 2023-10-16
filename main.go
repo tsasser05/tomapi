@@ -25,5 +25,5 @@ func main() {
 	router.PATCH("/names/:id", controllers.UpdateNameByID)
 	router.DELETE("/names/:id", controllers.DeleteNameByID)
 
-	router.Run(":8080")
+	router.Run(":8084")
 }
