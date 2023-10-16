@@ -19,6 +19,11 @@ cd to 'tomapi' directory
 docker build -t tomapi-prod -f Dockerfile.production .
 docker run -it -p 8084:8084 tomapi-prod
 
+### Push image to Docker Hub
+
+docker tag tomapi-prod:latest tsasser05/tomapi:tomapi-prod
+docker push tsasser05/tomapi:latest
+
 ### Tools
 I recommend you use Postman to test the API, though curl commands are included below.
 
