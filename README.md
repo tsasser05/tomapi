@@ -8,12 +8,16 @@
 ### Go
 Simply install go 1.17.
 
-### Docker Build
+### Docker Build DEV
 
 cd to 'tomapi' directory
 docker build -t tomapi-dev .
 docker run -it --rm -p 8084:8084 -v $PWD:/Users/tom/tomapi tomapi-dev
 
+### Docker Build PROD
+cd to 'tomapi' directory
+docker build -t tomapi-prod -f Dockerfile.production .
+docker run -it -p 8084:8084 tomapi-prod
 
 ### Tools
 I recommend you use Postman to test the API, though curl commands are included below.
