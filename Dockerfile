@@ -3,7 +3,7 @@
 From golang:1.19-alpine
 
 ENV GO111MODULE=on
-ENV GOFLAGS=-mod=vendor
+#ENV GOFLAGS=-mod=vendor
 ENV APP_HOME /Users/tom/tomapi
 RUN mkdir -p "$APP_HOME"
 WORKDIR "$APP_HOME"
