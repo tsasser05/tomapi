@@ -20,5 +20,5 @@ RUN go build -o /tomapi
 
 EXPOSE 8084
 
-CMD [ "/tomapi" ]
+CMD [ "./tomapi" ]
 
