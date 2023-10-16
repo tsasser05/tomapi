@@ -1,0 +1,29 @@
+# syntax=docker/dockerfile:1
+
+
+# build code section
+
+From golang:1.19-alpine as builder
+
+ENV GO111MODULE=on
+ENV APP_HOME /go/src/tomapi
+
+WORKDIR "$APP_HOME"
+COPY . "$APP_HOME"
+
+RUN apk add alpine-sdk
+RUN go mod download
+RUN go mod verify
+RUN go get -t -v ./...
+RUN go build -o tomapi
+
+# Build container section
+From golang:1.19-alpine
+
+ENV APP_HOME /go/src/tomapi
+RUN mkdir -p "$APP_HOME"
+WORKDIR "$APP_HOME"
+
+COPY --from=builder "$APP_HOME"/tomapi $APP_HOME
+EXPOSE 8084
+CMD [ "./tomapi" ]

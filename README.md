@@ -11,9 +11,9 @@ Simply install go 1.17.
 ### Docker Build
 
 cd to 'tomapi' directory
-docker build -t "tomapi:Dockerfile" .
-docker images
-docker run -d -p 8080:80 --name godocker <image id>
+docker build -t tomapi-dev .
+docker run -it --rm -p 8084:8084 -v $PWD:/Users/tom/tomapi tomapi-dev
+
 
 ### Tools
 I recommend you use Postman to test the API, though curl commands are included below.
@@ -53,20 +53,20 @@ go run main.go
 
 ### Endpoints
 
-#### http://localhost:8080/names
+#### http://localhost:8084/names
 
 | HTTP Op | Description |
 | --- | --- |
 | GET | Get a list of all names, returned in JSON format |
 | POST | Add a name from request data sent as JSON |
 
-#### http://localhost:8080/names/:first_name
+#### http://localhost:8084/names/:first_name
 
 | HTTP Op | Description |
 | --- | --- |
 | GET | Get a name by first name, returning data in JSON format |
 
-#### http://localhost:8080/names/:id
+#### http://localhost:8084/names/:id
 
 | HTTP Op | Description |
 | --- | --- |
@@ -77,12 +77,12 @@ go run main.go
 
 ### Get all names:
 ```
-curl --location --request GET 'http://localhost:8080/names'
+curl --location --request GET 'http://localhost:8084/names'
 ```
 
 ### Add a new name:
 ```
-curl --location --request POST 'http://localhost:8080/names' \
+curl --location --request POST 'http://localhost:8084/names' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name": "Baz",
@@ -93,13 +93,13 @@ curl --location --request POST 'http://localhost:8080/names' \
 
 ### Get name by searching for first name:
 ```
-curl --location --request GET 'http://localhost:8080/names/Foo'
+curl --location --request GET 'http://localhost:8084/names/Foo'
 ```
 
 ### Update a name by record ID.  Do a GET first to find the ID.
 Do a GET first to find the ID.
 ```
-curl --location --request PATCH 'http://localhost:8080/names/2' \
+curl --location --request PATCH 'http://localhost:8084/names/2' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "first_name":  "Baz",
@@ -110,5 +110,5 @@ curl --location --request PATCH 'http://localhost:8080/names/2' \
 ### Delete a name by record ID.
 Do a GET first to find the ID.
 ```
-curl --location --request DELETE 'http://localhost:8080/names/2'
+curl --location --request DELETE 'http://localhost:8084/names/2'
 ```
