@@ -30,6 +30,7 @@ brew install sqllite sqlite-utils
 ```
 
 #### Create Example DB
+Create the names.db file once.  The file will be included in the docker build.
 ```
 sqlite3 names.db
 sqlite> CREATE TABLE [names] (
