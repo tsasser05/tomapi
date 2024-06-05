@@ -108,7 +108,7 @@ Try finding a name that is not in the database:
 curl --location --request GET 'http://localhost:8084/names/Foo'
 ```
 
-### Update a name by record ID.  Do a GET first to find the ID.
+### Update a name by record ID.
 Do a GET first to find the ID.
 ```
 curl --location --request GET 'http://localhost:8084/names'
