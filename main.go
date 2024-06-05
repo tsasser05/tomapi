@@ -8,7 +8,7 @@ import (
 
 func IndexHandler(c *gin.Context) {
 	c.JSON(200, gin.H{
-		"message": "hello world",
+		"message": "This is the tomapi",
 	})
 }
 
