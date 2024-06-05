@@ -101,11 +101,20 @@ curl --location --request POST 'http://localhost:8084/names' \
 
 ### Get name by searching for first name:
 ```
+curl --location --request GET 'http://localhost:8084/names/Baz'
+```
+Try finding a name that is not in the database:
+```
 curl --location --request GET 'http://localhost:8084/names/Foo'
 ```
 
 ### Update a name by record ID.  Do a GET first to find the ID.
 Do a GET first to find the ID.
+```
+curl --location --request GET 'http://localhost:8084/names'
+```
+
+Update the record:
 ```
 curl --location --request PATCH 'http://localhost:8084/names/2' \
 --header 'Content-Type: application/json' \
